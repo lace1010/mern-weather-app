@@ -143,8 +143,12 @@ function App() {
   // If location permission is denied by the user
   if (permission === "denied") {
     return (
-      <div>
-        <div className="formAndUnitContainer">
+      <div className="darkOverlay">
+        <div
+          className={
+            city ? "formAndUnitContainer" : "formAndUnitContainerDenied"
+          }
+        >
           <form onSubmit={handleSubmit}>
             <input
               className="cityInput"
@@ -156,10 +160,11 @@ function App() {
             ></input>
             <input className="submitButton" type="submit" value="Submit" />
           </form>
-
-          <button className="unitButton" onClick={handleUnitChange}>
-            {unitButtonText}
-          </button>
+          {city ? (
+            <button className="unitButton" onClick={handleUnitChange}>
+              {unitButtonText}
+            </button>
+          ) : null}
         </div>
         {city ? (
           <WeatherDisplay weatherData={weatherData} unitObject={unitObject} />
@@ -177,7 +182,7 @@ function App() {
   // If location permision is allowed
   else {
     return (
-      <div>
+      <div className="darkOverlay">
         {/* If weatherData has info then display info form, if not then null */}
         {weatherData ? (
           <div className="formAndUnitContainer">

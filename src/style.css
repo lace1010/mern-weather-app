@@ -3,6 +3,7 @@
   --buttonBackground: rgba(0, 0, 0, 0.7);
   --weatherDisplayBackground: rgba(0, 0, 0, 0.4);
   --weatherDisplayHeaderBackground: rgba(0, 0, 0, 0.5);
+  --mainOverlay: rgba(255, 255, 255, 0.15);
 }
 
 /* background: linear-gradient(45deg, rgb(0, 47, 90), rgb(39, 62, 83));
@@ -41,18 +42,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   background-size: 100% 100%;
   /* CHANGE BACKGROUND IMAGE WITH PICS*/
 }
 
+.darkOverlay {
+  background-color: var(--mainOverlay);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .formAndUnitContainer {
+  width: 45vw;
   display: flex;
   justify-content: space-between;
+  text-align: center;
+}
+
+.formAndUnitContainerDenied {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .cityInput {
@@ -230,6 +248,7 @@ body {
 }
 
 @media (max-width: 1200px) {
+  .formAndUnitContainer,
   .weatherDisplayContainer,
   .forecastDisplayContainer {
     width: 60vw;
@@ -237,6 +256,7 @@ body {
 }
 
 @media (max-width: 850px) {
+  .formAndUnitContainer,
   .weatherDisplayContainer,
   .forecastDisplayContainer {
     width: 75vw;
@@ -244,6 +264,7 @@ body {
 }
 
 @media (max-width: 650px) {
+  .formAndUnitContainer,
   .weatherDisplayContainer,
   .forecastDisplayContainer {
     width: 90vw;
@@ -256,6 +277,34 @@ body {
   }
   .weatherMessageMobile {
     display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .forecastDisplayHeaderContainer {
+    font-size: 1.1rem;
+  }
+
+  .dayForecast {
+    padding: 0.8rem;
+  }
+
+  .forecastDate {
+    font-size: 1rem;
+  }
+
+  .forecastIcon {
+    margin: 0.5rem 0.2rem 0.5rem 0.2rem;
+    font-size: 1.5rem;
+  }
+
+  .forecastHigh {
+    font-size: 1rem;
+  }
+
+  .forecastLow {
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
   }
 }
 
