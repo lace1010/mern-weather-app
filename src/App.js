@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import WeatherDisplay from "./weather";
-import ForcastDisplay from "./forcast";
-import "./style.css";
+import ForecastDisplay from "./forcast";
 require("dotenv").config();
 
 function App() {
@@ -18,13 +17,14 @@ function App() {
 
   const [coordinates, setCoordinates] = useState(null);
   const [weatherData, setWeatherData] = useState();
+  const [forecastData, setforecastData] = useState();
   const [permission, setPermission] = useState("allowed");
   const [userCity, setUserCity] = useState("");
   const [city, setCity] = useState();
   const [unit, setUnit] = useState("metric"); // Change this at any time to imperial to display feranheit and mph for wind etc...
   const [unitButtonText, setUnitButtonText] = useState("Metric");
   const [unitObject, setUnitObject] = useState(metricObject);
-  const [currentHour] = useState(20); // new Date().getHours()
+  const [currentHour] = useState(new Date().getHours());
 
   // get current hour and change background color of body depending on the time
   // Background image displayed will depend on the current hour
@@ -76,6 +76,7 @@ function App() {
   // Whenever coordinates change we call on fetchWeatherData. (if coordinates are null then do not fetch. This makes sure we don't fetch weather data with no longitude or latitude)
   useEffect(() => {
     if (city) {
+      // Fetch current weather
       fetch(
         `${process.env.REACT_APP_API_URL}/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=${unit}`
       )
@@ -84,13 +85,34 @@ function App() {
           setWeatherData(result);
           console.log(result);
         });
+
+      // Fetch 5 day forcast by coordinates
+      fetch(
+        `${process.env.REACT_APP_API_URL}/forecast?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=${unit}`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setforecastData(result);
+          console.log(result);
+        });
     } else if (coordinates) {
+      // Fetch current weather
       fetch(
         `${process.env.REACT_APP_API_URL}/weather/?lat=${coordinates[0]}&lon=${coordinates[1]}&units=${unit}&APPID=${process.env.REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((result) => {
           setWeatherData(result);
+          console.log(result);
+        });
+
+      // Fetch 5 day forcast by coordinates
+      fetch(
+        `${process.env.REACT_APP_API_URL}/forecast?lat=${coordinates[0]}&lon=${coordinates[1]}&units=${unit}&APPID=${process.env.REACT_APP_API_KEY}`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setforecastData(result);
           console.log(result);
         });
     }
@@ -143,7 +165,10 @@ function App() {
           <WeatherDisplay weatherData={weatherData} unitObject={unitObject} />
         ) : null}
         {city ? (
-          <ForcastDisplay weatherData={weatherData} unitObject={unitObject} />
+          <ForecastDisplay
+            forecastData={forecastData}
+            unitObject={unitObject}
+          />
         ) : null}
       </div>
     );
@@ -174,7 +199,7 @@ function App() {
           </div>
         ) : null}
         <WeatherDisplay weatherData={weatherData} unitObject={unitObject} />
-        <ForcastDisplay weatherData={weatherData} unitObject={unitObject} />
+        <ForecastDisplay forecastData={forecastData} unitObject={unitObject} />
       </div>
     );
   }

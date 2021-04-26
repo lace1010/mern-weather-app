@@ -108,6 +108,16 @@ body {
   border-top-right-radius: 1rem;
 }
 
+.dateAndTime {
+  display: flex;
+  flex-direction: column;
+}
+
+.time {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+}
+
 .refreshIcon {
   color: var(--fontAwecomeColor);
   transition: all 0.3s ease;
@@ -170,20 +180,72 @@ body {
   margin-right: 1rem;
 }
 
+/* FORCAST DISPLAY */
+
+.forecastDisplayContainer {
+  background: var(--weatherDisplayBackground);
+  width: 45vw; /* CHANGE WITH MEDIA QUERY*/
+  color: var(--fontAwecomeColor);
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+}
+
+.forecastDisplayHeaderContainer {
+  background: var(--weatherDisplayHeaderBackground);
+  color: var(--fontAwecomeColor);
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  font-size: 1.3rem;
+}
+
+.forecastDaysDisplayContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dayForecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.forecastDate {
+  font-size: 1.3rem;
+}
+.forecastIcon {
+  margin: 0.5rem;
+  font-size: 2rem;
+}
+
+.forecastHigh {
+  font-size: 1.3rem;
+}
+
+.forecastLow {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+}
+
 @media (max-width: 1200px) {
-  .weatherDisplayContainer {
+  .weatherDisplayContainer,
+  .forecastDisplayContainer {
     width: 60vw;
   }
 }
 
 @media (max-width: 850px) {
-  .weatherDisplayContainer {
+  .weatherDisplayContainer,
+  .forecastDisplayContainer {
     width: 75vw;
   }
 }
 
 @media (max-width: 650px) {
-  .weatherDisplayContainer {
+  .weatherDisplayContainer,
+  .forecastDisplayContainer {
     width: 90vw;
   }
 }

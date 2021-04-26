@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapMarkerAlt,
@@ -110,14 +110,17 @@ const WeatherDisplay = ({ weatherData, unitObject }) => {
     return (
       <div className="weatherDisplayContainer">
         <div className="header">
-          <span>
-            {/*<i class="fas fa-map-marker-alt"></i>*/}
-            <FontAwesomeIcon
-              className="locationIcon"
-              icon="map-marker-alt"
-            />{" "}
-            {weatherData.name}, {weatherData.sys.country}
-          </span>
+          <div className="dateAndTime">
+            <span>
+              {/*<i class="fas fa-map-marker-alt"></i>*/}
+              <FontAwesomeIcon
+                className="locationIcon"
+                icon="map-marker-alt"
+              />{" "}
+              {weatherData.name}, {weatherData.sys.country}
+            </span>
+            <span className="time">{moment().format("h:mm a")}</span>
+          </div>
 
           <span className="date">
             {date}
