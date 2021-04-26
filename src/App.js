@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import WeatherDisplay from "./weather";
+import ForcastDisplay from "./forcast";
 import "./style.css";
 require("dotenv").config();
 
@@ -23,7 +24,7 @@ function App() {
   const [unit, setUnit] = useState("metric"); // Change this at any time to imperial to display feranheit and mph for wind etc...
   const [unitButtonText, setUnitButtonText] = useState("Metric");
   const [unitObject, setUnitObject] = useState(metricObject);
-  const [currentHour] = useState(new Date().getHours());
+  const [currentHour] = useState(20); // new Date().getHours()
 
   // get current hour and change background color of body depending on the time
   // Background image displayed will depend on the current hour
@@ -59,9 +60,9 @@ function App() {
       (error) => {
         if (error.code === error.PERMISSION_DENIED) {
           setPermission("denied");
-          // alert(
-          //   "You denied location permission. To get weather information for your current location go to settings and allow us to use your location to give you your current weather information."
-          // );
+          alert(
+            "You denied location permission. To get weather information for your current location go to settings and allow us to use your location to give you your current weather information."
+          );
         }
       }
     );
@@ -141,6 +142,9 @@ function App() {
         {city ? (
           <WeatherDisplay weatherData={weatherData} unitObject={unitObject} />
         ) : null}
+        {city ? (
+          <ForcastDisplay weatherData={weatherData} unitObject={unitObject} />
+        ) : null}
       </div>
     );
   }
@@ -170,6 +174,7 @@ function App() {
           </div>
         ) : null}
         <WeatherDisplay weatherData={weatherData} unitObject={unitObject} />
+        <ForcastDisplay weatherData={weatherData} unitObject={unitObject} />
       </div>
     );
   }

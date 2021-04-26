@@ -205,20 +205,3 @@ body {
     font-size: 0.8rem;
   }
 }
-
-@media (max-width: 350px) {
-  .header {
-    position: relative;
-    flex-direction: column;
-  }
-
-  .date {
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-  }
-  .refreshIcon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-}

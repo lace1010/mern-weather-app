@@ -32,9 +32,9 @@ library.add(
 // ADD A REFRESH BUTTON TO PAGE TO GO BACK TO CURRENT LOCATION
 const WeatherDisplay = ({ weatherData, unitObject }) => {
   // could also use toLocaleDateString if want to display mm/dd/yyyy
-  let date = new Date().toDateString();
   const [weatherMessage, setWeatherMessage] = useState("");
   const [icon, setIcon] = useState("");
+  const [date] = useState(new Date().toDateString());
 
   useEffect(() => {
     if (weatherData && weatherData.cod !== "404") {
