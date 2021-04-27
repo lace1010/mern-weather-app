@@ -3,7 +3,7 @@
   --buttonBackground: rgba(0, 0, 0, 0.7);
   --weatherDisplayBackground: rgba(0, 0, 0, 0.4);
   --weatherDisplayHeaderBackground: rgba(0, 0, 0, 0.5);
-  --mainOverlay: rgba(255, 255, 255, 0.15);
+  --mainOverlay: rgba(255, 255, 255, 0.2);
 }
 
 /* background: linear-gradient(45deg, rgb(0, 47, 90), rgb(39, 62, 83));
@@ -44,6 +44,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   background-size: 100% 100%;
+
   /* CHANGE BACKGROUND IMAGE WITH PICS*/
 }
 
@@ -198,6 +199,16 @@ body {
   margin-right: 1rem;
 }
 
+.errorMessageContainer {
+  padding: 0.5rem;
+  background: var(--weatherDisplayBackground);
+  color: white;
+  border-radius: 3rem;
+  width: 45vw;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 /* FORCAST DISPLAY */
 
 .forecastDisplayContainer {
@@ -247,10 +258,57 @@ body {
   font-size: 1rem;
 }
 
+/* HOURLY DISPLAY */
+
+.hourDisplayContainer {
+  display: flex;
+  color: var(--fontAwecomeColor);
+  position: relative;
+  overflow-x: scroll;
+  width: 80vw;
+  min-height: 13rem;
+}
+
+.hourForecast {
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--weatherDisplayBackground);
+  margin: 2rem 1rem 0.7rem 0rem;
+  padding: 1rem;
+  min-width: 5rem;
+  min-height: 7.5rem;
+}
+
+.hourForecastDate {
+  font-size: 1.3rem;
+}
+.hourForecastTemp {
+  font-size: 1.3rem;
+}
+
+.hourForecastIcon {
+  margin: 0.5rem;
+  font-size: 2rem;
+}
+
+::-webkit-scrollbar {
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--fontAwecomeColor);
+  height: 5px;
+  border-radius: 10px;
+}
+
 @media (max-width: 1200px) {
   .formAndUnitContainer,
   .weatherDisplayContainer,
-  .forecastDisplayContainer {
+  .forecastDisplayContainer,
+  .errorMessageContainer {
     width: 60vw;
   }
 }
@@ -258,7 +316,9 @@ body {
 @media (max-width: 850px) {
   .formAndUnitContainer,
   .weatherDisplayContainer,
-  .forecastDisplayContainer {
+  .forecastDisplayContainer,
+  .hourDisplayContainer,
+  .errorMessageContainer {
     width: 75vw;
   }
 }
@@ -266,7 +326,9 @@ body {
 @media (max-width: 650px) {
   .formAndUnitContainer,
   .weatherDisplayContainer,
-  .forecastDisplayContainer {
+  .forecastDisplayContainer,
+  .hourDisplayContainer,
+  .errorMessageContainer {
     width: 90vw;
   }
 }

@@ -13,6 +13,7 @@ import {
   faSnowflake,
   faSun,
   faWind,
+  faSadCry,
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(
@@ -26,7 +27,8 @@ library.add(
   faCloudRain,
   faSnowflake,
   faSun,
-  faWind
+  faWind,
+  faSadCry
 );
 
 // ADD A REFRESH BUTTON TO PAGE TO GO BACK TO CURRENT LOCATION
@@ -97,11 +99,16 @@ const WeatherDisplay = ({ weatherData, unitObject }) => {
 
   // if weatherData exists and returns error code 429
   if (weatherData && weatherData.cod === 429) {
-    return <div>{weatherData.message}</div>;
+    return <div className="errorMessageContainer">{weatherData.message}</div>;
   }
   // If user inputs an invalid city
   else if (weatherData && weatherData.cod === "404") {
-    return <div style={{ color: "white" }}>{weatherData.message}</div>;
+    return (
+      <div className="errorMessageContainer">
+        <FontAwesomeIcon icon="sad-cry" /> Sorry, the specified city was not
+        found
+      </div>
+    );
   }
 
   // if weatherData exists

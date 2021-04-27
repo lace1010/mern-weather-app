@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import WeatherDisplay from "./weather";
-import ForecastDisplay from "./forcast";
+import ForecastDisplay from "./forecast";
+import HourlyForecastDisplay from "./hourly-forecast";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faSearch } from "@fortawesome/free-solid-svg-icons";
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// library.add(faSearch);
 require("dotenv").config();
 
 function App() {
@@ -175,6 +180,12 @@ function App() {
             unitObject={unitObject}
           />
         ) : null}
+        {city ? (
+          <HourlyForecastDisplay
+            forecastData={forecastData}
+            unitObject={unitObject}
+          />
+        ) : null}
       </div>
     );
   }
@@ -205,6 +216,10 @@ function App() {
         ) : null}
         <WeatherDisplay weatherData={weatherData} unitObject={unitObject} />
         <ForecastDisplay forecastData={forecastData} unitObject={unitObject} />
+        <HourlyForecastDisplay
+          forecastData={forecastData}
+          unitObject={unitObject}
+        />
       </div>
     );
   }

@@ -91,13 +91,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           // Set date for day 1
           setDay1Forecast((prevState) => ({
             ...prevState,
-            date: new Date(forecastData.list[i].dt_txt)
-              .toLocaleDateString()
-              .slice(
-                0,
-                new Date(forecastData.list[i].dt_txt).toLocaleDateString()
-                  .length - 5
-              ),
+            date: moment(forecastData.list[i].dt_txt).format("MM-DD"),
           }));
 
           // Set icon for day 1
@@ -146,13 +140,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           // Set date for day 2
           setDay2Forecast((prevState) => ({
             ...prevState,
-            date: new Date(forecastData.list[i].dt_txt)
-              .toLocaleDateString()
-              .slice(
-                0,
-                new Date(forecastData.list[i].dt_txt).toLocaleDateString()
-                  .length - 5
-              ),
+            date: moment(forecastData.list[i].dt_txt).format("MM-DD"),
           }));
 
           // Set icon for day 2
@@ -196,13 +184,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           // Set date for day 3
           setDay3Forecast((prevState) => ({
             ...prevState,
-            date: new Date(forecastData.list[i].dt_txt)
-              .toLocaleDateString()
-              .slice(
-                0,
-                new Date(forecastData.list[i].dt_txt).toLocaleDateString()
-                  .length - 5
-              ),
+            date: moment(forecastData.list[i].dt_txt).format("MM-DD"),
           }));
 
           // Set icon for day 3
@@ -243,13 +225,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           // Set date for day 4
           setDay4Forecast((prevState) => ({
             ...prevState,
-            date: new Date(forecastData.list[i].dt_txt)
-              .toLocaleDateString()
-              .slice(
-                0,
-                new Date(forecastData.list[i].dt_txt).toLocaleDateString()
-                  .length - 5
-              ),
+            date: moment(forecastData.list[i].dt_txt).format("MM-DD"),
           }));
 
           // Set icon for day 4
@@ -290,13 +266,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           // Set date for day 5
           setDay5Forecast((prevState) => ({
             ...prevState,
-            date: new Date(forecastData.list[i].dt_txt)
-              .toLocaleDateString()
-              .slice(
-                0,
-                new Date(forecastData.list[i].dt_txt).toLocaleDateString()
-                  .length - 5
-              ),
+            date: moment(forecastData.list[i].dt_txt).format("MM-DD"),
           }));
 
           // Set icon for day 5
