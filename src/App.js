@@ -148,7 +148,7 @@ function App() {
   // If location permission is denied by the user
   if (permission === "denied") {
     return (
-      <div class="container">
+      <div className="containerWithOverlay">
         <div
           className={
             city ? "formAndUnitContainer" : "formAndUnitContainerDenied"
@@ -193,7 +193,7 @@ function App() {
   // If location permision is allowed
   else {
     return (
-      <div class="container">
+      <div className="containerWithOverlay">
         {/* If weatherData has info then display info form, if not then null */}
         {weatherData ? (
           <div className="formAndUnitContainer">
