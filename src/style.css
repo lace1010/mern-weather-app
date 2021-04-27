@@ -41,8 +41,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
   background-size: 100% 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,7 +56,7 @@ body {
   align-items: center;
 }
 .formAndUnitContainer {
-  padding-top: 5rem;
+  padding-top: 2rem;
   width: 45vw;
   display: flex;
   justify-content: space-between;
@@ -261,7 +261,7 @@ body {
   position: relative;
   overflow-x: scroll;
   width: 80vw;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .hourForecast {
