@@ -3,7 +3,7 @@
   --buttonBackground: rgba(0, 0, 0, 0.7);
   --weatherDisplayBackground: rgba(0, 0, 0, 0.4);
   --weatherDisplayHeaderBackground: rgba(0, 0, 0, 0.5);
-  --mainOverlay: rgba(255, 255, 255, 0.2);
+  --mainOverlay: rgba(0, 0, 0, 0.2);
 }
 
 /* background: linear-gradient(45deg, rgb(0, 47, 90), rgb(39, 62, 83));
@@ -351,7 +351,7 @@ body {
   }
 
   .forecastDate {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .forecastIcon {
