@@ -43,7 +43,7 @@ const HourlyForecastDisplay = ({ forecastData, unitObject }) => {
         hourlyForecastArray.push(
           <div className="hourForecast" key={i}>
             <span className="hourForecastDate">
-              {moment(forecastData.list[i].dt_txt).format("MM-DD")}
+              {moment(forecastData.list[i].dt_txt).format("M-DD")}
             </span>
             <span className="hourForecastTime">
               {moment(forecastData.list[i].dt_txt).format("h:mm")}
