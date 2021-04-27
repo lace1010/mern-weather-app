@@ -95,10 +95,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           }));
 
           // Set icon for day 1
-          if (
-            new Date(forecastData.list[i].dt_txt).toLocaleTimeString() ===
-            "3:00:00 PM"
-          ) {
+          if (moment(forecastData.list[i].dt_txt).format("HH") === "15") {
             setDay1Forecast((prevState) => ({
               ...prevState,
               icon: iconSort(forecastData.list[i].weather[0].main),
@@ -144,10 +141,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           }));
 
           // Set icon for day 2
-          if (
-            new Date(forecastData.list[i].dt_txt).toLocaleTimeString() ===
-            "3:00:00 PM"
-          ) {
+          if (moment(forecastData.list[i].dt_txt).format("HH") === "15") {
             setDay2Forecast((prevState) => ({
               ...prevState,
               icon: iconSort(forecastData.list[i].weather[0].main),
@@ -188,10 +182,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           }));
 
           // Set icon for day 3
-          if (
-            new Date(forecastData.list[i].dt_txt).toLocaleTimeString() ===
-            "3:00:00 PM"
-          ) {
+          if (moment(forecastData.list[i].dt_txt).format("HH") === "15") {
             setDay3Forecast((prevState) => ({
               ...prevState,
               icon: iconSort(forecastData.list[i].weather[0].main),
@@ -229,10 +220,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           }));
 
           // Set icon for day 4
-          if (
-            new Date(forecastData.list[i].dt_txt).toLocaleTimeString() ===
-            "3:00:00 PM"
-          ) {
+          if (moment(forecastData.list[i].dt_txt).format("HH") === "15") {
             setDay4Forecast((prevState) => ({
               ...prevState,
               icon: iconSort(forecastData.list[i].weather[0].main),
@@ -270,10 +258,7 @@ const ForecastDisplay = ({ forecastData, unitObject }) => {
           }));
 
           // Set icon for day 5
-          if (
-            new Date(forecastData.list[i].dt_txt).toLocaleTimeString() ===
-            "3:00:00 PM"
-          ) {
+          if (moment(forecastData.list[i].dt_txt).format("HH") === "15") {
             setDay5Forecast((prevState) => ({
               ...prevState,
               icon: iconSort(forecastData.list[i].weather[0].main),
