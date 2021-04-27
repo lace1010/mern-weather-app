@@ -46,7 +46,7 @@ const HourlyForecastDisplay = ({ forecastData, unitObject }) => {
               {moment(forecastData.list[i].dt_txt).format("M-DD")}
             </span>
             <span className="hourForecastTime">
-              {moment(forecastData.list[i].dt_txt).format("h:mm")}
+              {moment(forecastData.list[i].dt_txt).format("h:mm a")}
             </span>
             <span className="hourForecastIcon">
               {iconSort(forecastData.list[i].weather[0].main)}
