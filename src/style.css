@@ -3,7 +3,6 @@
   --buttonBackground: rgba(0, 0, 0, 0.7);
   --weatherDisplayBackground: rgba(0, 0, 0, 0.4);
   --weatherDisplayHeaderBackground: rgba(0, 0, 0, 0.5);
-  --mainOverlay: rgba(255, 255, 255, 0.2);
 }
 
 /* background: linear-gradient(45deg, rgb(0, 47, 90), rgb(39, 62, 83));
@@ -44,24 +43,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   background-size: 100% 100%;
-
-  /* CHANGE BACKGROUND IMAGE WITH PICS*/
-}
-
-.darkOverlay {
-  background-color: var(--mainOverlay);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .formAndUnitContainer {
+  padding-top: 5rem;
   width: 45vw;
   display: flex;
   justify-content: space-between;
@@ -266,7 +261,7 @@ body {
   position: relative;
   overflow-x: scroll;
   width: 80vw;
-  min-height: 13rem;
+  margin-bottom: 1rem;
 }
 
 .hourForecast {
